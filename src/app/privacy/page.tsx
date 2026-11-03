@@ -24,7 +24,7 @@ export default function PrivacyPage() {
       />
 
       <section className="container-x mt-14 pb-10">
-        <Reveal className="mx-auto max-w-3xl">
+        <Reveal amount={0.01} className="mx-auto max-w-3xl">
           <div className="rounded-[2rem] border border-line bg-card/40 p-8 sm:p-10">
             <div className="prose-sf">
               <h2>1. The short version</h2>

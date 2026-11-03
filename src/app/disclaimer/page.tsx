@@ -19,7 +19,7 @@ const EFFECTIVE = '1st January 2024';
 /** Highlighted statutory notice, matching the printed legal document. */
 function Notice({ children }: { children: React.ReactNode }) {
   return (
-    <div className="my-7 flex gap-4 rounded-2xl border border-amber/25 bg-amber/[0.05] p-6 not-prose">
+    <div className="my-7 flex gap-4 rounded-2xl border border-amber/25 bg-amber/[0.05] p-6">
       <Icon.shield className="mt-0.5 h-5 w-5 shrink-0 text-amber" />
       <p className="text-sm leading-relaxed text-fg/90">
         <strong className="font-semibold">IMPORTANT NOTICE:</strong> {children}
@@ -50,7 +50,13 @@ export default function DisclaimerPage() {
       />
 
       <section className="container-x mt-14 pb-10">
-        <Reveal className="mx-auto max-w-3xl">
+        {/*
+          amount must stay tiny here. Reveal defaults to 0.25, meaning a quarter
+          of the element has to be on screen before it animates in — and a
+          quarter of this document is taller than any viewport, so the observer
+          would never fire and the page would render blank.
+        */}
+        <Reveal amount={0.01} className="mx-auto max-w-3xl">
           <div className="rounded-[2rem] border border-line bg-card/40 p-8 sm:p-10">
             <div className="prose-sf">
               <p>
