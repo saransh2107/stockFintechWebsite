@@ -5,6 +5,7 @@ import { pageMeta, breadcrumbLd } from '@/lib/seo';
 import { PageHero, CTABand, SectionHeading } from '@/components/ui';
 import { StaggerGroup, StaggerItem, Reveal } from '@/components/motion';
 import { Icon } from '@/components/Icons';
+import { MentorAvatar } from '@/components/MentorAvatar';
 
 export const metadata: Metadata = pageMeta({
   title: 'Mentors',
@@ -66,9 +67,7 @@ export default function MentorsPage() {
                   className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-bull/10 blur-3xl"
                 />
                 <div className="relative flex flex-wrap items-center gap-5">
-                  <span className="grid h-20 w-20 shrink-0 place-items-center rounded-3xl bg-gradient-to-br from-bull to-cyan font-display text-2xl font-extrabold text-ink">
-                    {mentor.initials}
-                  </span>
+                  <MentorAvatar mentor={mentor} size="h-20 w-20" />
                   <div className="min-w-0">
                     <h2 className="text-2xl font-bold leading-tight transition-colors group-hover:text-bull">
                       {mentor.name}

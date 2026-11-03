@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { mentors } from '@/lib/site';
 import { pageMeta, breadcrumbLd, personLd } from '@/lib/seo';
 import { CTABand } from '@/components/ui';
+import { MentorAvatar } from '@/components/MentorAvatar';
 import { Reveal, StaggerGroup, StaggerItem } from '@/components/motion';
 import { Icon } from '@/components/Icons';
 
@@ -70,15 +71,24 @@ export default async function MentorPage({ params }: Props) {
             className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-bull/10 blur-3xl"
           />
           <div className="relative flex flex-wrap items-center gap-6">
-            <span className="grid h-24 w-24 shrink-0 place-items-center rounded-[1.75rem] bg-gradient-to-br from-bull to-cyan font-display text-3xl font-extrabold text-ink">
-              {mentor.initials}
-            </span>
+            <MentorAvatar mentor={mentor} size="h-24 w-24" text="text-3xl" />
             <div className="min-w-0">
               <h1 className="text-3xl font-extrabold leading-tight sm:text-4xl">{mentor.name}</h1>
               <p className="mt-1.5 text-sm font-semibold text-bull">{mentor.role}</p>
               <p className="mt-1.5 text-2xs uppercase tracking-[0.12em] text-muted">
                 {mentor.credentials}
               </p>
+              {mentor.linkedin && (
+                <a
+                  href={mentor.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex items-center gap-2 rounded-full border border-line bg-white/[0.03] px-3.5 py-1.5 text-xs text-fg/80 transition-colors hover:border-cyan/40 hover:text-cyan"
+                >
+                  <Icon.linkedin className="h-3.5 w-3.5" />
+                  View LinkedIn profile
+                </a>
+              )}
             </div>
           </div>
         </Reveal>
@@ -158,9 +168,7 @@ export default async function MentorPage({ params }: Props) {
                   href={`/mentors/${o.slug}/`}
                   className="group flex h-full items-center gap-5 rounded-3xl border border-line bg-card/40 p-6 transition-colors hover:border-bull/30"
                 >
-                  <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-bull to-cyan font-display text-lg font-extrabold text-ink">
-                    {o.initials}
-                  </span>
+                  <MentorAvatar mentor={o} size="h-14 w-14" text="text-lg" className="rounded-2xl" />
                   <div className="min-w-0">
                     <h3 className="font-bold leading-snug transition-colors group-hover:text-bull">
                       {o.name}

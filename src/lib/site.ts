@@ -199,6 +199,14 @@ export type Mentor = {
   /** What this mentor actually takes, by course title. */
   teaches: string[];
   initials: string;
+  /** Public LinkedIn profile. Emitted as schema.org sameAs. */
+  linkedin?: string;
+  /**
+   * Path under /public to a headshot, e.g. '/mentors/anwar.jpg'.
+   * Falls back to the initials tile when absent, so the layout holds
+   * either way and a photo can be dropped in without a code change.
+   */
+  photo?: string;
 };
 
 export const mentors: Mentor[] = [
@@ -216,28 +224,32 @@ export const mentors: Mentor[] = [
     specialities: ['Price Action', 'Options Strategies', 'Risk Management', 'NISM Series VIII'],
     teaches: ['Ultimate Traders Program', 'NISM Series VIII', 'One-on-One Mentorship'],
     initials: 'GP',
+    linkedin: 'https://www.linkedin.com/in/govindam-pal-6b7565403/',
+    // photo: '/mentors/govindam-pal.jpg',
   },
   {
     // ────────────────────────────────────────────────────────────────────
     // PLACEHOLDER PROFILE — NOT YET VERIFIED.
-    // mystockfintech.com carries no biography, designation, experience or
-    // certification for Anwar; /instructor/anwar/ is an empty template.
-    // Everything below except the name is written copy, not sourced fact.
-    // Replace it with details confirmed by Stock Fintech before launch, and
-    // do not publish any credential claim that has not been checked.
+    // The name is taken from the LinkedIn URL below. mystockfintech.com has
+    // no biography for him, and LinkedIn blocks automated reads (HTTP 999),
+    // so the copy below is written filler, not sourced fact. Replace it with
+    // details confirmed by Stock Fintech before launch, and do not publish
+    // any credential claim that has not been checked.
     // ────────────────────────────────────────────────────────────────────
-    name: 'Anwar',
+    name: 'Mohd Anwar',
     slug: 'anwar',
     role: 'Mentor',
     credentials: 'Details to be confirmed',
-    bio: 'Anwar teaches on the Stock Fintech programs alongside the founding desk. His full profile is being finalised.',
+    bio: 'Mohd Anwar teaches on the Stock Fintech programs alongside the founding desk. His full profile is being finalised.',
     profile: [
-      'Anwar teaches on the Stock Fintech programs alongside the founding desk.',
+      'Mohd Anwar teaches on the Stock Fintech programs alongside the founding desk.',
       'A full profile — covering his background, years in the market, certifications and the subjects he takes — is being finalised and will be published here shortly.',
     ],
     specialities: [],
     teaches: [],
-    initials: 'A',
+    initials: 'MA',
+    linkedin: 'https://www.linkedin.com/in/mohd-anwar-75b303245/',
+    // photo: '/mentors/anwar.jpg',
   },
   {
     name: 'Research & Analytics Desk',

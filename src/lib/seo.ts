@@ -220,5 +220,7 @@ export function personLd(mentor: Mentor) {
     url: abs(`/mentors/${mentor.slug}/`),
     worksFor: { '@id': `${site.url}/#organization` },
     ...(mentor.specialities.length > 0 && { knowsAbout: mentor.specialities }),
+    ...(mentor.linkedin && { sameAs: [mentor.linkedin] }),
+    ...(mentor.photo && { image: abs(mentor.photo) }),
   };
 }
