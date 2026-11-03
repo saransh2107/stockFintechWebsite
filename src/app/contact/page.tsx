@@ -9,7 +9,7 @@ import ContactForm from '@/components/ContactForm';
 export const metadata: Metadata = pageMeta({
   title: 'Contact Us',
   description:
-    'Visit Stock Fintech at K-4, Power House Chauraha, Ashiyana, Lucknow. Call +91 895 395 2666 or +91 955 960 1555, email contact@mystockfintech.com, or book a free demo class online.',
+    'Visit Stock Fintech at K-4, Power House Chauraha, Ashiyana, Lucknow. Call +91 96963 71476 or +91 955 960 1555, email contact@mystockfintech.com, or book a free demo class online.',
   path: '/contact/',
   keywords: ['Stock Fintech contact', 'stock market classes Lucknow address', 'book demo class'],
 });

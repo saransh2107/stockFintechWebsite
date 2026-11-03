@@ -20,7 +20,7 @@ const popularLinks = [
   { label: 'Trading Course', href: '/trading-course/' },
   { label: 'Stock Market Course in Lucknow', href: '/stock-market-course-in-lucknow/' },
   { label: 'Share Market Classes in Lucknow', href: '/stock-market-course-in-lucknow/' },
-  { label: 'NISM Coaching', href: '/courses/nism-certification/' },
+  { label: 'NISM Series XV Coaching', href: '/courses/nism-series-15/' },
   { label: 'Options Trading Course', href: '/trading-course/' },
 ];
 

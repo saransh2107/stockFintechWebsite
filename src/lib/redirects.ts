@@ -27,4 +27,6 @@ export const redirects: { from: string; to: string }[] = [
   { from: '/contact-us/', to: '/contact/' },
   { from: '/faq/', to: '/about/#faq' },
   { from: '/career/', to: '/careers/' },
+  // The combined NISM track was split into Series VIII and Series XV.
+  { from: '/courses/nism-certification/', to: '/courses/nism-series-15/' },
 ];

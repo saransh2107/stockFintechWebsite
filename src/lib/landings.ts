@@ -44,7 +44,7 @@ const lucknow: Landing = {
   eyebrow: 'Lucknow',
   metaTitle: 'Stock Market Course in Lucknow — Share Market Classes & Training',
   metaDescription:
-    'Join a stock market course in Lucknow at Stock Fintech, Ashiyana. Classroom and live online share market classes, NISM certification coaching, live market sessions and one-on-one mentorship in English & Hindi. Book a free demo class.',
+    'Join a stock market course in Lucknow at Stock Fintech, Ashiyana. Classroom and live online share market classes, NISM certification coaching, live market analysis classes and one-on-one mentorship in English & Hindi. Book a free demo class.',
   keywords: [
     'stock market course in Lucknow',
     'share market classes Lucknow',
@@ -135,7 +135,7 @@ const lucknow: Landing = {
       items: [
         {
           title: 'Book a free demo',
-          body: 'Call +91 895 395 2666 or send the enquiry form. Tell us your experience level and when you can attend.',
+          body: 'Call +91 96963 71476 or send the enquiry form. Tell us your experience level and when you can attend.',
         },
         {
           title: 'Sit in on a live class',
@@ -190,7 +190,7 @@ const lucknow: Landing = {
   ],
   related: [
     { label: 'Ultimate Traders Program', href: '/courses/ultimate-traders-program/' },
-    { label: 'NISM certification coaching', href: '/courses/nism-certification/' },
+    { label: 'NISM Series XV coaching', href: '/courses/nism-series-15/' },
     { label: 'Fees and plans', href: '/pricing/' },
     { label: 'Visit the centre', href: '/contact/' },
   ],
@@ -205,7 +205,7 @@ const stockMarketCourse: Landing = {
   eyebrow: 'Stock market course',
   metaTitle: 'Stock Market Course — Learn Share Market Trading from Scratch',
   metaDescription:
-    'A complete stock market course covering technical analysis, fundamental analysis, options and risk management. Live market sessions, NISM certification prep, English & Hindi. Learn what a good share market course should actually teach you.',
+    'A complete stock market course covering technical analysis, fundamental analysis, options and risk management. Live market analysis classes, NISM certification prep, English & Hindi. Learn what a good share market course should actually teach you.',
   keywords: [
     'stock market course',
     'stock course',
@@ -314,7 +314,7 @@ const stockMarketCourse: Landing = {
       h2: 'How long it takes, honestly',
       paras: [
         'You can learn the mechanics of the market in a few weeks. You can learn to analyse a chart competently in two to three months of consistent work. Becoming consistently profitable is a different question, and anyone who puts a date on it for you is guessing.',
-        'A realistic structure is four months of instruction and practice to build the method, then six to twelve months of small-size live trading with journaling and review to make it stick. Our Ultimate Traders Program covers the first part across roughly 90 hours; the mentorship track exists for the second.',
+        'A realistic structure is four months of instruction and practice to build the method, then six to twelve months of small-size real-capital trading with journaling and review to make it stick. Our Ultimate Traders Program covers the first part across roughly 90 hours; the mentorship track exists for the second.',
       ],
     },
     {
@@ -333,7 +333,7 @@ const stockMarketCourse: Landing = {
     },
     {
       q: 'How much money do I need to start trading after a course?',
-      a: 'Less than most people expect, and you should start smaller than you can afford. The purpose of your first six months of live trading is to test your process, not to earn — position sizes should be small enough that a losing streak is uncomfortable rather than damaging. Many of our students begin with ₹10,000 to ₹25,000 and scale only once their journal justifies it.',
+      a: 'Less than most people expect, and you should start smaller than you can afford. The purpose of your first six months of real-capital trading is to test your process, not to earn — position sizes should be small enough that a losing streak is uncomfortable rather than damaging. Many of our students begin with ₹10,000 to ₹25,000 and scale only once their journal justifies it.',
     },
     {
       q: 'Is a stock market course worth the money?',
@@ -355,7 +355,7 @@ const stockMarketCourse: Landing = {
   related: [
     { label: 'Ultimate Traders Program', href: '/courses/ultimate-traders-program/' },
     { label: 'Trading course', href: '/trading-course/' },
-    { label: 'NISM certification', href: '/courses/nism-certification/' },
+    { label: 'NISM Series XV', href: '/courses/nism-series-15/' },
     { label: 'Course fees', href: '/pricing/' },
   ],
 };
@@ -449,7 +449,7 @@ const tradingCourse: Landing = {
       type: 'checks',
       h2: 'What this trading course includes',
       items: [
-        'Live market sessions during NSE hours with mentors marking up real charts',
+        'Live market analysis classes during NSE hours with mentors marking up real charts',
         'Strategy-building and back-testing labs over multiple market regimes',
         'Options payoff builder and Greeks taught in plain language',
         'Weekly review of your own trade journal with a mentor',
@@ -480,7 +480,7 @@ const tradingCourse: Landing = {
     },
     {
       q: 'How long does it take to learn trading?',
-      a: 'Two to four months to build a method, then six to twelve months of small-size live trading with journaling to make it consistent. Anyone offering a timeline to profitability is guessing — the instruction has a schedule, your consistency does not.',
+      a: 'Two to four months to build a method, then six to twelve months of small-size real-capital trading with journaling to make it consistent. Anyone offering a timeline to profitability is guessing — the instruction has a schedule, your consistency does not.',
     },
     {
       q: 'Is intraday trading profitable?',
@@ -488,7 +488,7 @@ const tradingCourse: Landing = {
     },
     {
       q: 'Do I need a big capital to start trading?',
-      a: 'No, and starting small is the correct choice regardless of what you can afford. Your first months of live trading are a test of your process, so position sizes should be small enough that a losing streak teaches you something rather than ending your participation. Scale only when your journal shows the method works.',
+      a: 'No, and starting small is the correct choice regardless of what you can afford. Your first months of real-capital trading are a test of your process, so position sizes should be small enough that a losing streak teaches you something rather than ending your participation. Scale only when your journal shows the method works.',
     },
     {
       q: 'Can I learn trading while working a full-time job?',

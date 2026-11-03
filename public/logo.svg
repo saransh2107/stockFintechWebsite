@@ -1,13 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <!--
+    Stock Fintech browser-tab icon.
+    Same geometry as src/components/BrandMark.tsx, traced from the original
+    brand artwork. The bars are knocked out through a mask so the icon reads
+    on both light and dark browser chrome.
+  -->
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#00E39A"/>
-      <stop offset="100%" stop-color="#38D6FF"/>
+    <linearGradient id="g" x1="0.08" y1="0.95" x2="0.95" y2="0.08">
+      <stop offset="0%" stop-color="#BC06F5"/>
+      <stop offset="28%" stop-color="#A13BFB"/>
+      <stop offset="55%" stop-color="#8A7CFF"/>
+      <stop offset="78%" stop-color="#4ADDFF"/>
+      <stop offset="100%" stop-color="#16F1FF"/>
     </linearGradient>
+    <radialGradient id="spec" cx="0.32" cy="0.26" r="0.62">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.5"/>
+      <stop offset="45%" stop-color="#FFFFFF" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="m">
+      <circle cx="60" cy="60" r="58" fill="#fff"/>
+      <g stroke="#000" stroke-width="12.9" stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <line x1="30.0" y1="35.8" x2="36.7" y2="29.1"/>
+        <line x1="29.5" y1="62.6" x2="63.8" y2="28.4"/>
+        <line x1="30.9" y1="90.7" x2="91.9" y2="29.2"/>
+        <line x1="57.4" y1="90.5" x2="91.6" y2="56.3"/>
+        <line x1="84.7" y1="91.1" x2="91.6" y2="84.1"/>
+        <path d="M81.8 29.2 H91.9 V38.2"/>
+      </g>
+    </mask>
   </defs>
-  <rect width="64" height="64" rx="16" fill="url(#g)"/>
-  <g fill="none" stroke="#05070D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M14 45 L25 31 L34 38 L50 18"/>
-    <path d="M39 18 H50 V29"/>
+
+  <g mask="url(#m)">
+    <circle cx="60" cy="60" r="58" fill="url(#g)"/>
+    <circle cx="60" cy="60" r="58" fill="url(#spec)"/>
   </g>
 </svg>

@@ -87,7 +87,7 @@ export default function PricingPage() {
         <StaggerGroup className="grid gap-5 lg:grid-cols-2" gap={0.09}>
           {courses.map((c) => {
             const Glyph = Icon[c.icon];
-            const save = c.mrp - c.price;
+            const save = c.mrp ? c.mrp - c.price : 0;
             return (
               <StaggerItem key={c.slug}>
                 <div
@@ -114,13 +114,15 @@ export default function PricingPage() {
                     <span className="tnum font-display text-4xl font-extrabold">
                       ₹{c.price.toLocaleString('en-IN')}
                     </span>
-                    <span className="tnum pb-1.5 text-sm text-muted line-through">
-                      ₹{c.mrp.toLocaleString('en-IN')}
-                    </span>
+                    {save > 0 && (
+                      <span className="tnum pb-1.5 text-sm text-muted line-through">
+                        ₹{c.mrp!.toLocaleString('en-IN')}
+                      </span>
+                    )}
                   </div>
                   <p className="tnum mt-2 text-xs text-bull">
-                    Save ₹{save.toLocaleString('en-IN')} · or 3 × ₹
-                    {Math.ceil(c.price / 3).toLocaleString('en-IN')} EMI
+                    {save > 0 ? `Save ₹${save.toLocaleString('en-IN')} · ` : ''}3 × ₹
+                    {Math.ceil(c.price / 3).toLocaleString('en-IN')} interest-free EMI
                   </p>
 
                   <ul className="mt-7 flex-1 space-y-3">

@@ -121,9 +121,11 @@ export function CourseCard({ course, index = 0 }: { course: Course; index?: numb
           <span className="tnum font-bold text-fg">
             ₹{course.price.toLocaleString('en-IN')}
           </span>
-          <span className="tnum ml-2 text-xs text-muted line-through">
-            ₹{course.mrp.toLocaleString('en-IN')}
-          </span>
+          {course.mrp && course.mrp > course.price && (
+            <span className="tnum ml-2 text-xs text-muted line-through">
+              ₹{course.mrp.toLocaleString('en-IN')}
+            </span>
+          )}
         </span>
         <Link
           href={`/courses/${course.slug}/`}
@@ -218,7 +220,7 @@ export function CheckItem({ children }: { children: ReactNode }) {
 
 export function CTABand({
   title = 'Ready to trade with a system instead of a hunch?',
-  body = 'Sit in on a free demo class, meet the mentors and see the live market session before you decide anything.',
+  body = 'Sit in on a free demo class, meet the mentors and see a live market analysis class before you decide anything.',
   primary = { label: 'Book a free demo', href: '/contact/' },
   secondary = { label: 'Browse courses', href: '/courses/' },
 }: {

@@ -19,13 +19,15 @@ export const metadata: Metadata = pageMeta({
   ],
 });
 
+/* Column order must match the `courses` array: Indian, VIII, XV, Forex, Mentorship. */
 const compare = [
-  { label: 'Live market sessions', values: [true, false, true, true] },
-  { label: 'Recorded access for life', values: [true, true, true, true] },
-  { label: 'Mock tests & question bank', values: [true, true, false, false] },
-  { label: 'Options & derivatives', values: [true, true, false, true] },
-  { label: 'Personal portfolio review', values: [true, false, false, true] },
-  { label: 'One-on-one sessions', values: [false, false, false, true] },
+  { label: 'Live market analysis classes', values: [true, false, false, true, true] },
+  { label: 'Recorded access for life', values: [true, true, true, true, true] },
+  { label: 'Mock tests & question bank', values: [false, true, true, false, false] },
+  { label: 'Options & derivatives', values: [true, true, false, false, true] },
+  { label: 'Valuation & research notes', values: [false, false, true, false, false] },
+  { label: 'Personal portfolio review', values: [true, false, false, false, true] },
+  { label: 'One-on-one sessions', values: [false, false, false, false, true] },
 ];
 
 export default function CoursesPage() {
@@ -51,7 +53,7 @@ export default function CoursesPage() {
       />
 
       <section className="container-x mt-16">
-        <StaggerGroup className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4" gap={0.09}>
+        <StaggerGroup className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" gap={0.09}>
           {courses.map((c, i) => (
             <CourseCard key={c.slug} course={c} index={i} />
           ))}
@@ -72,7 +74,7 @@ export default function CoursesPage() {
         />
 
         <div className="mt-12 overflow-x-auto rounded-3xl border border-line bg-card/40">
-          <table className="w-full min-w-[640px] border-collapse text-sm">
+          <table className="w-full min-w-[820px] border-collapse text-sm">
             <caption className="sr-only">Feature comparison across Stock Fintech programs</caption>
             <thead>
               <tr className="border-b border-line">

@@ -22,7 +22,7 @@ import { Reveal } from '@/components/motion';
 export const metadata: Metadata = pageMeta({
   title: 'Stock Fintech — Stock Market, NISM, Forex & Crypto Training in Lucknow',
   description:
-    'Learn stock market trading, NISM certification (Series V-A, V-B, VIII, XV), Forex and Crypto at Stock Fintech Lucknow. Live market sessions, NSE & NISM certified mentors, classroom and online batches in English & Hindi.',
+    'Learn stock market trading, NISM certification (Series V-A, V-B, VIII, XV), Forex and Crypto at Stock Fintech Lucknow. Live market analysis classes, NSE & NISM certified mentors, classroom and online batches in English & Hindi.',
   path: '/',
 });
 
@@ -89,7 +89,7 @@ export default function HomePage() {
                 Questions, <span className="text-gradient">answered</span>
               </>
             }
-            body="Still unsure about something? Call us on +91 895 395 2666 or book a free demo class and ask in person."
+            body="Still unsure about something? Call us on +91 96963 71476 or book a free demo class and ask in person."
           />
           <Accordion items={[...faqs]} />
         </div>

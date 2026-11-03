@@ -9,7 +9,7 @@ export const site = {
   tagline: 'Learn. Grow. Shine.',
   url: 'https://mystockfintech.com',
   description:
-    'Stock Fintech Lucknow teaches stock market trading, NISM certification (Series V-A, V-B, VIII, XV), Forex and Crypto — with live market sessions, NSE & NISM certified mentors, and one-on-one mentorship in English & Hindi.',
+    'Stock Fintech Lucknow teaches stock market trading, NISM certification (Series V-A, V-B, VIII, XV), Forex and Crypto — with live market analysis classes, NSE & NISM certified mentors, and one-on-one mentorship in English & Hindi.',
   shortDescription:
     'Stock market, NISM certification, Forex & Crypto training in Lucknow — taught by NSE & NISM certified mentors.',
   locale: 'en_IN',
@@ -18,13 +18,13 @@ export const site = {
 
 export const contact = {
   phones: [
-    { label: '+91 895 395 2666', href: 'tel:+918953952666' },
+    { label: '+91 96963 71476', href: 'tel:+919696371476' },
     { label: '+91 955 960 1555', href: 'tel:+919559601555' },
   ],
   email: 'contact@mystockfintech.com',
   whatsapp: {
-    number: '918953952666',
-    href: 'https://wa.me/918953952666',
+    number: '919696371476',
+    href: 'https://wa.me/919696371476',
   },
   address: {
     street: 'K-4, Power House Chauraha, Ashiyana',
@@ -34,7 +34,7 @@ export const contact = {
     country: 'IN',
     full: 'K-4, Power House Chauraha, Ashiyana, Lucknow, Uttar Pradesh 226012',
   },
-  hours: 'Mon-Sat, 10:00 AM - 7:00 PM IST',
+  hours: 'Visiting hours: Mon-Sat, 10:00 AM - 7:00 PM IST',
 };
 
 /* Social profiles - replace the `#` placeholders with the real handles. */
@@ -59,7 +59,8 @@ export const nav: NavItem[] = [
     href: '/courses/',
     children: [
       { label: 'Indian Stock Market', href: '/courses/ultimate-traders-program/' },
-      { label: 'NISM Certification', href: '/courses/nism-certification/' },
+      { label: 'NISM Series VIII', href: '/courses/nism-series-8/' },
+      { label: 'NISM Series XV', href: '/courses/nism-series-15/' },
       { label: 'Forex & Crypto', href: '/courses/forex-and-crypto/' },
       { label: 'One-on-One Mentorship', href: '/courses/one-on-one-mentorship/' },
       { label: 'Stock Market Course', href: '/stock-market-course/' },
@@ -137,7 +138,7 @@ export const whyUs = [
 
 export const learningModel = [
   'Interactive & Tech-Enabled Classrooms',
-  'Live Market Trading Sessions',
+  'Live Market Analysis Classes',
   'Speed Test & Smart Labs',
   '24/7 Doubt Resolution Support',
   'Study Materials, Question Banks & E-Books',
@@ -210,7 +211,7 @@ export const testimonials = [
     name: 'Rahul Verma',
     role: 'Business Owner',
     quote:
-      'Stock Fintech Lucknow has completely changed my understanding of the stock market. The practical training and live market sessions helped me gain real confidence in trading.',
+      'Stock Fintech Lucknow has completely changed my understanding of the stock market. The practical training and live market analysis classes helped me gain real confidence in trading.',
   },
   {
     name: 'Priya Sharma',
@@ -228,7 +229,7 @@ export const testimonials = [
     name: 'Abhishek Mishra',
     role: 'Engineering Student',
     quote:
-      'The live trading sessions and practical exposure make this institute different from others. They focus on real market experience.',
+      'The live market analysis classes and practical exposure make this institute different from others. They focus on real market experience.',
   },
   {
     name: 'Pooja Srivastava',
@@ -280,7 +281,7 @@ export const faqs = [
   },
   {
     q: 'Will I get to trade during the course?',
-    a: 'Yes. Live market sessions run during NSE hours where mentors mark up real charts in real time. You also get back-testing labs and a simulated environment before risking your own capital.',
+    a: 'Yes. Live market analysis classes run during NSE hours where mentors mark up real charts in real time. You also get back-testing labs and a simulated environment before risking your own capital.',
   },
   {
     q: 'Do you guarantee profits or give buy/sell tips?',

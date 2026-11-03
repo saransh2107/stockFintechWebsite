@@ -144,8 +144,8 @@ export default function CareersPage() {
 
       <CTABand
         title="Start with the certification employers ask for"
-        body="The NISM track covers Series V-A, V-B, VIII and XV with mock tests, question banks and per-topic analytics."
-        primary={{ label: 'View NISM program', href: '/courses/nism-certification/' }}
+        body="Series XV is the SEBI requirement for research analysts. Our track covers the full syllabus plus modelling, valuation and report writing."
+        primary={{ label: 'View NISM Series XV', href: '/courses/nism-series-15/' }}
         secondary={{ label: 'Talk to a mentor', href: '/contact/' }}
       />
     </>

@@ -41,8 +41,8 @@ export default async function CoursePage({ params }: Props) {
 
   const Glyph = Icon[course.icon];
   const others = courses.filter((c) => c.slug !== course.slug);
-  const save = course.mrp - course.price;
-  const savePct = Math.round((save / course.mrp) * 100);
+  const save = course.mrp ? course.mrp - course.price : 0;
+  const savePct = course.mrp ? Math.round((save / course.mrp) * 100) : 0;
 
   return (
     <>
@@ -125,12 +125,16 @@ export default async function CoursePage({ params }: Props) {
                 <span className="tnum font-display text-3xl font-extrabold text-fg">
                   ₹{course.price.toLocaleString('en-IN')}
                 </span>
-                <span className="tnum pb-1 text-sm text-muted line-through">
-                  ₹{course.mrp.toLocaleString('en-IN')}
-                </span>
+                {save > 0 && (
+                  <span className="tnum pb-1 text-sm text-muted line-through">
+                    ₹{course.mrp!.toLocaleString('en-IN')}
+                  </span>
+                )}
               </div>
               <p className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-bull/10 px-2.5 py-1 text-2xs font-bold text-bull">
-                Save ₹{save.toLocaleString('en-IN')} ({savePct}% off)
+                {save > 0
+                  ? `Save ₹${save.toLocaleString('en-IN')} (${savePct}% off)`
+                  : `Or 3 instalments of ₹${Math.ceil(course.price / 3).toLocaleString('en-IN')}`}
               </p>
 
               <ul className="mt-6 space-y-3">
@@ -263,7 +267,7 @@ export default async function CoursePage({ params }: Props) {
 
       <CTABand
         title={`Sit in on a ${course.shortTitle} session before you pay`}
-        body="Free demo class, no obligation. Watch how a live market session actually runs, meet the mentor and decide after."
+        body="Free demo class, no obligation. Watch how a live market analysis class actually runs, meet the mentor and decide after."
       />
     </>
   );

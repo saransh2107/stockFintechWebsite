@@ -2,7 +2,7 @@
 
 > Stock market, NISM certification, Forex and Crypto training institute in Lucknow,
 > India. Classroom and live online batches taught bilingually in English and Hindi by
-> NSE and NISM certified mentors, with live market sessions on real NSE charts.
+> NSE and NISM certified mentors, with live market analysis classes on real NSE charts.
 
 Stock Fintech is an education provider. It is NOT a SEBI-registered Investment Adviser
 or Research Analyst. It does not sell buy/sell tips, trading calls, portfolio management
@@ -10,28 +10,32 @@ or assured-return schemes, and it does not promise any level of return.
 
 - Founded: 2019
 - Location: K-4, Power House Chauraha, Ashiyana, Lucknow, Uttar Pradesh 226012, India
-- Phone: +91 895 395 2666, +91 955 960 1555
+- Phone: +91 96963 71476, +91 955 960 1555
 - Email: contact@mystockfintech.com
 - Languages: English, Hindi
+- Visiting hours: Mon-Sat, 10:00 AM - 7:00 PM IST
 - Students trained: 10,000+
 - Operated by: M/s KOSOVO INDIA INC.
 
 ## Courses
 
 - [Ultimate Traders Program (UTP)](https://mystockfintech.com/courses/ultimate-traders-program/):
-  Flagship 4-month, 90+ hour stock market certification. Market structure, technical and
+  Flagship 2.5-month stock market certification. Market structure, technical and
   fundamental analysis, options and derivatives, price action, risk management, trading
-  psychology. Beginner to advanced. ₹24,999.
-- [NISM Certification Program](https://mystockfintech.com/courses/nism-certification/):
-  Exam preparation for NISM Series V-A (Mutual Fund Distributors), V-B (Mutual Fund
-  Foundation), VIII (Equity Derivatives) and XV (Research Analyst). Chapter-wise question
-  banks and full-length mocks in a replica exam interface. 6–10 weeks per series. ₹11,999.
+  psychology. Beginner to advanced. Rs 40,000.
+- [NISM Series VIII - Equity Derivatives](https://mystockfintech.com/courses/nism-series-8/):
+  Exam preparation for the NISM Series VIII Equity Derivatives certification. Chapter-wise
+  question banks and full-length mocks in a replica exam interface. 6 weeks. Rs 50,000.
+- [NISM Series XV - Research Analyst](https://mystockfintech.com/courses/nism-series-15/):
+  Full preparation for NISM Series XV, the certification SEBI requires of research
+  analysts, plus practical financial modelling, valuation and research report writing.
+  10 weeks. Rs 1,25,000.
 - [Forex & Crypto Trading](https://mystockfintech.com/courses/forex-and-crypto/):
   Institutional order-flow and smart-money concepts for 24-hour markets, session-based
-  strategies, leverage risk management. 8 weeks. ₹14,999.
+  strategies, leverage risk management. 8 weeks. Rs 30,000.
 - [One-on-One Mentorship](https://mystockfintech.com/courses/one-on-one-mentorship/):
   Private mentorship built on an audit of your own trades and journal. 12 sessions across
-  3 months. ₹49,999.
+  3 months. Rs 1,75,000.
 
 ## Guides
 

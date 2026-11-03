@@ -1,10 +1,11 @@
 /**
  * Course catalogue.
  *
- * NOTE: the live site shows no prices anywhere, so the `price` / `mrp` values
- * below are PLACEHOLDERS at realistic Indian market rates. Replace them with
- * your actual fees before going live — they feed the pricing page and the
- * Course structured data that Google reads.
+ * Fees are the real list prices supplied by Stock Fintech. There is no
+ * struck-through "MRP" — inventing a higher original price to imply a
+ * discount is misleading and, under Indian consumer law, risky. If a genuine
+ * promotional price is ever run, set `mrp` on that course and the discount
+ * badge appears automatically.
  */
 
 export type Course = {
@@ -19,7 +20,8 @@ export type Course = {
   mode: string;
   language: string;
   price: number;
-  mrp: number;
+  /** Optional. Only set during a genuine promotion. */
+  mrp?: number;
   featured?: boolean;
   accent: 'mint' | 'cyan' | 'violet' | 'amber';
   icon: 'candles' | 'certificate' | 'globe' | 'mentor';
@@ -34,22 +36,21 @@ export const courses: Course[] = [
     slug: 'ultimate-traders-program',
     title: 'Ultimate Traders Program (UTP) — Complete Stock Market Certification',
     shortTitle: 'Indian Stock Market',
-    tagline: 'Basics to advanced, on live charts',
+    tagline: 'Basics to advanced, on real charts',
     summary:
       'From basics to advanced strategies including technical analysis, fundamental analysis, options trading and price action.',
     description:
-      'The UTP Combo is our flagship track and the fastest route from complete beginner to a trader with a written, tested system. You start with market structure and order types, move through technical and fundamental analysis, then spend the back half of the program on options strategies, price action and risk management — applied on live NSE charts during market hours, not on slides.',
+      'The UTP Combo is our flagship track and the fastest route from complete beginner to a trader with a written, tested system. You start with market structure and order types, move through technical and fundamental analysis, then spend the back half of the program on options strategies, price action and risk management — applied to real NSE charts during market hours, not to slides.',
     level: 'Beginner to Advanced',
-    duration: '4 months · 90+ hours',
+    duration: '2.5 months',
     mode: 'Classroom + Live Online + Recorded',
     language: 'English & Hindi',
-    price: 24999,
-    mrp: 34999,
+    price: 40000,
     featured: true,
     accent: 'mint',
     icon: 'candles',
     highlights: [
-      'Live market sessions during NSE hours',
+      'Live market analysis classes during NSE hours',
       'Options strategy lab with payoff builder',
       'Personal portfolio review with a mentor',
       'Lifetime access to recordings & updates',
@@ -124,63 +125,62 @@ export const courses: Course[] = [
     ],
   },
   {
-    slug: 'nism-certification',
-    title: 'NISM Certification Program — Series V-A, V-B, VIII & XV',
-    shortTitle: 'NISM Certification',
-    tagline: 'Structured syllabus, mock tests, analytics',
+    slug: 'nism-series-8',
+    title: 'NISM Series VIII — Equity Derivatives Certification',
+    shortTitle: 'NISM Series VIII',
+    tagline: 'Equity derivatives, exam-ready',
     summary:
-      'Prepare for NISM Series V-A, V-B, VIII & XV with a structured syllabus, mock tests, performance analytics and expert mentorship.',
+      'Structured preparation for the NISM Series VIII Equity Derivatives exam, with chapter-wise question banks and full-length mocks.',
     description:
-      'A focused, exam-oriented track for the NISM certifications that the industry actually asks for. Each series is taught chapter by chapter against the official NISM workbook, reinforced with a chapter-wise question bank, and finished with full-length mock tests that replicate the real exam interface and timer. Per-topic analytics show you exactly which chapters to revise before you book your slot.',
+      'NISM Series VIII is the certification required for anyone working on an equity derivatives desk, and it is the one most broking employers ask for. We teach it chapter by chapter against the official NISM workbook, reinforce each chapter with a question bank, and finish with full-length mock tests that replicate the real exam interface and timer. Per-topic analytics show you exactly which chapters to revise before you book your slot.',
     level: 'Beginner to Intermediate',
-    duration: '6-10 weeks per series',
+    duration: '6 weeks',
     mode: 'Classroom + Live Online + Recorded',
     language: 'English & Hindi',
-    price: 11999,
-    mrp: 15999,
+    price: 50000,
     accent: 'cyan',
     icon: 'certificate',
     highlights: [
-      'Covers Series V-A, V-B, VIII and XV',
+      'Full official Series VIII syllabus, chapter by chapter',
       'Full-length mocks in a replica exam interface',
       'Chapter-wise question bank with explanations',
       'Per-topic analytics before you book the exam',
     ],
     modules: [
       {
-        title: 'Series V-A — Mutual Fund Distributors',
+        title: 'Derivatives Foundations',
         lessons: [
-          'Concept and role of mutual funds in India',
-          'Fund structure, SEBI regulations and offer documents',
-          'NAV, loads, taxation and investor services',
-          'Scheme selection and suitability for investors',
+          'Forwards, futures and options, and what each is for',
+          'Payoff diagrams and how to read them quickly',
+          'Participants: hedgers, speculators and arbitrageurs',
+          'The Indian derivatives market and its instruments',
         ],
       },
       {
-        title: 'Series V-B — Mutual Fund Foundation',
+        title: 'Trading Mechanics',
         lessons: [
-          'Foundation-level fund concepts and terminology',
-          'Legal structure and the role of each constituent',
-          'Returns, risk measures and benchmarking',
-          'Full-length mock papers with review',
+          'Contract specifications, lot sizes and expiry cycles',
+          'Order types and the trading system',
+          'Price discovery, basis and cost of carry',
+          'Strategies: spreads, straddles, strangles and covered calls',
         ],
       },
       {
-        title: 'Series VIII — Equity Derivatives',
+        title: 'Clearing, Settlement & Risk',
         lessons: [
-          'Forwards, futures, options and their payoffs',
-          'Trading, clearing, settlement and risk management',
+          'The clearing corporation and its guarantee',
           'Margining: SPAN, exposure and mark-to-market',
-          'Regulatory framework and the code of conduct',
+          'Settlement of futures and options',
+          'Risk management at the member and client level',
         ],
       },
       {
-        title: 'Series XV — Research Analyst',
+        title: 'Regulation & Compliance',
         lessons: [
-          'Terminology, ecosystem and the role of a research analyst',
-          'Economy, industry and company analysis',
-          'Valuation principles and report writing',
-          'Regulations, disclosures and ethical standards',
+          'SEBI regulatory framework for derivatives',
+          'Eligibility criteria and position limits',
+          'Code of conduct and investor grievance redressal',
+          'Accounting and taxation basics for derivatives',
         ],
       },
       {
@@ -194,16 +194,107 @@ export const courses: Course[] = [
       },
     ],
     outcomes: [
-      'Walk into the NISM exam having already sat it a dozen times',
-      'Know the syllabus chapter by chapter, not by guesswork',
-      'Qualify for roles that list NISM certification as mandatory',
-      'Understand the regulation behind the practice, not just the answers',
+      'Walk into the Series VIII exam having already sat it a dozen times',
+      'Explain any derivative payoff without reaching for a formula',
+      'Understand margining well enough to manage a real position',
+      'Qualify for derivatives desk roles that list Series VIII as mandatory',
     ],
     audience: [
-      'Mutual fund distributors and IFAs who need V-A',
-      'Aspiring research analysts targeting Series XV',
-      'Broking and AMC employees with a compliance deadline',
+      'Broking and dealing staff with a compliance deadline',
+      'Aspiring derivatives dealers and desk traders',
+      'Options traders who want the regulation behind the practice',
       'Finance students adding a recognised credential',
+    ],
+  },
+  {
+    slug: 'nism-series-15',
+    title: 'NISM Series XV — Research Analyst Certification',
+    shortTitle: 'NISM Series XV',
+    tagline: 'The research analyst credential',
+    summary:
+      'Complete preparation for NISM Series XV, the certification SEBI requires of research analysts — valuation, modelling and report writing included.',
+    description:
+      'Series XV is the hardest and most valuable of the NISM certifications, and it is a SEBI requirement for anyone working as a research analyst. This is our most comprehensive track: alongside the full official syllabus we teach the practical craft the exam assumes — economy and industry analysis, financial modelling, valuation, and writing a research note someone would actually act on. You finish with a certification and a portfolio of your own written research.',
+    level: 'Intermediate to Advanced',
+    duration: '10 weeks',
+    mode: 'Classroom + Live Online + Recorded',
+    language: 'English & Hindi',
+    price: 125000,
+    accent: 'violet',
+    icon: 'certificate',
+    highlights: [
+      'Full official Series XV syllabus plus practical modelling',
+      'Build and defend your own valuation models',
+      'Write research notes reviewed by a mentor',
+      'Full-length mocks in a replica exam interface',
+    ],
+    modules: [
+      {
+        title: 'The Research Ecosystem',
+        lessons: [
+          'What a research analyst does, and for whom',
+          'Buy side versus sell side, and how reports are consumed',
+          'Terminology, data sources and research infrastructure',
+          'Qualities and ethics of a credible analyst',
+        ],
+      },
+      {
+        title: 'Economy & Industry Analysis',
+        lessons: [
+          'Macroeconomic indicators that actually move markets',
+          'Business cycles and sector sensitivity',
+          'Porter, SWOT and structural industry analysis',
+          'Regulatory and policy risk in Indian sectors',
+        ],
+      },
+      {
+        title: 'Company & Financial Analysis',
+        lessons: [
+          'Reading annual reports past the headline numbers',
+          'Quality of earnings and accounting red flags',
+          'Ratio analysis, DuPont and peer benchmarking',
+          'Building a three-statement financial model',
+        ],
+      },
+      {
+        title: 'Valuation',
+        lessons: [
+          'Discounted cash flow from first principles',
+          'Relative valuation: P/E, EV/EBITDA, P/B and when each fails',
+          'Sum-of-the-parts and sector-specific methods',
+          'Sensitivity analysis and defending your assumptions',
+        ],
+      },
+      {
+        title: 'Report Writing & Recommendation',
+        lessons: [
+          'Structuring a research note: thesis, evidence, risks',
+          'Target price derivation and rating frameworks',
+          'Writing for a reader who will disagree with you',
+          'Peer review of your own published notes',
+        ],
+      },
+      {
+        title: 'Regulation & Exam Readiness',
+        lessons: [
+          'SEBI (Research Analysts) Regulations and disclosures',
+          'Conflicts of interest and the code of conduct',
+          'Timed full-length mocks in the replica interface',
+          'Per-chapter weakness report and revision plan',
+        ],
+      },
+    ],
+    outcomes: [
+      'Clear NISM Series XV and meet the SEBI research analyst requirement',
+      'Build a three-statement model and a defensible DCF from scratch',
+      'Write a research note that stands up to cross-examination',
+      'Walk into interviews with published work, not just a certificate',
+    ],
+    audience: [
+      'Aspiring equity research analysts and associates',
+      'Finance graduates targeting AMC, PMS or broking research roles',
+      'Working professionals moving into research from other functions',
+      'Anyone required by SEBI to hold the Research Analyst certification',
     ],
   },
   {
@@ -216,12 +307,11 @@ export const courses: Course[] = [
     description:
       'A 24-hour market behaves nothing like a 6-hour one. This track covers currency pairs and digital assets on their own terms: session behaviour, liquidity, funding and the institutional order-flow concepts that explain why price returns to the levels it does. Heavy emphasis on risk, because leverage in these markets is unforgiving.',
     level: 'Intermediate',
-    duration: '8 weeks · 40+ hours',
+    duration: '8 weeks',
     mode: 'Live Online + Recorded',
     language: 'English & Hindi',
-    price: 14999,
-    mrp: 19999,
-    accent: 'violet',
+    price: 30000,
+    accent: 'amber',
     icon: 'globe',
     highlights: [
       'Smart money and liquidity concepts',
@@ -286,20 +376,19 @@ export const courses: Course[] = [
     shortTitle: 'Personal Mentorship',
     tagline: 'Your charts, your trades, your plan',
     summary:
-      'Customised learning path, live trade reviews, behavioural coaching and faster skill development.',
+      'Customised learning path, private trade reviews, behavioural coaching and faster skill development.',
     description:
       'Private mentorship built entirely around where you are now. We audit your current trades and journal, find the two or three habits actually costing you money, and rebuild your process around them. Sessions are scheduled to suit you, and between sessions you get direct access for trade reviews.',
     level: 'All levels',
     duration: '3 months · 12 private sessions',
     mode: 'One-on-one, online or in person',
     language: 'English & Hindi',
-    price: 49999,
-    mrp: 64999,
-    accent: 'amber',
+    price: 175000,
+    accent: 'violet',
     icon: 'mentor',
     highlights: [
       'Fully customised curriculum after a skills audit',
-      'Live trade and journal reviews every week',
+      'Private review of your trades and journal every week',
       'Behavioural coaching on tilt and discipline',
       'Direct mentor access between sessions',
     ],
@@ -323,7 +412,7 @@ export const courses: Course[] = [
         ],
       },
       {
-        title: 'Live Trade Review',
+        title: 'Trade Review',
         lessons: [
           'Weekly screen-share review of your actual trades',
           'Separating process errors from bad outcomes',
