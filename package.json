@@ -9,7 +9,9 @@
     "news": "node scripts/fetch-news.mjs",
     "analyze": "next build && node -e \"const{readdirSync,statSync}=require('fs');const p='out/_next/static/chunks';let t=0;readdirSync(p).filter(f=>f.endsWith('.js')).map(f=>({f,s:statSync(p+'/'+f).size})).sort((a,b)=>b.s-a.s).slice(0,12).forEach(x=>{t+=x.s;console.log((x.s/1024).toFixed(1).padStart(8)+' KB  '+x.f)});console.log('\\ntop-12 total: '+(t/1024).toFixed(1)+' KB raw')\"",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "framer-motion": "^14.3.0",
@@ -24,6 +26,7 @@
     "autoprefixer": "10.4.20",
     "postcss": "8.5.1",
     "tailwindcss": "3.4.17",
-    "typescript": "5.7.3"
+    "typescript": "5.7.3",
+    "vitest": "^2.1.8"
   }
 }
