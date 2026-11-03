@@ -305,9 +305,14 @@ npx lighthouse http://localhost:4000 --view
 
 ## Deploying
 
-> **Hostinger users: see [HOSTINGER.md](HOSTINGER.md)** for a step-by-step guide written
-> against the Premium plan, including backing up the existing WordPress site and what
-> happens to the LearnPress LMS.
+Host-specific guides:
+>
+> - **[CLOUDFLARE.md](CLOUDFLARE.md)** — recommended. Free for commercial use, edge
+>   nodes inside India. Note: use a **Pages** project, not Workers — Cloudflare's
+>   Next.js auto-detect picks the OpenNext adapter, which fails on a static export.
+> - **[VERCEL.md](VERCEL.md)** — best DX, but the free tier is non-commercial.
+> - **[HOSTINGER.md](HOSTINGER.md)** — serving from the Premium plan you already pay
+>   for, including backing up WordPress and what happens to the LearnPress LMS.
 
 The build writes host-specific config into `./out` automatically.
 
