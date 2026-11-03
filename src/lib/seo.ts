@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { site, contact, socials, faqs } from './site';
+import { site, contact, socials, faqs, type Mentor } from './site';
 import { courses, type Course } from './courses';
 
 const abs = (path = '/') => new URL(path, site.url).toString();
@@ -200,5 +200,25 @@ export function breadcrumbLd(trail: { name: string; path: string }[]) {
       name: t.name,
       item: abs(t.path),
     })),
+  };
+}
+
+/**
+ * Person schema for an individual mentor profile.
+ *
+ * `knowsAbout` is only emitted when the mentor actually has specialities
+ * recorded — an empty array in the markup is worse than no property at all.
+ */
+export function personLd(mentor: Mentor) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${site.url}/mentors/${mentor.slug}/#person`,
+    name: mentor.name,
+    jobTitle: mentor.role,
+    description: mentor.bio,
+    url: abs(`/mentors/${mentor.slug}/`),
+    worksFor: { '@id': `${site.url}/#organization` },
+    ...(mentor.specialities.length > 0 && { knowsAbout: mentor.specialities }),
   };
 }

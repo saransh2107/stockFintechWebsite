@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { site } from '@/lib/site';
+import { site, mentors } from '@/lib/site';
 import { courses } from '@/lib/courses';
 import { landings } from '@/lib/landings';
 
@@ -21,7 +21,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: url('/terms/'), changeFrequency: 'yearly', priority: 0.2 },
     { url: url('/privacy/'), changeFrequency: 'yearly', priority: 0.2 },
     { url: url('/refund-policy/'), changeFrequency: 'yearly', priority: 0.2 },
+    { url: url('/disclaimer/'), changeFrequency: 'yearly', priority: 0.2 },
   ];
+
+  const mentorPages: MetadataRoute.Sitemap = mentors.map((m) => ({
+    url: url(`/mentors/${m.slug}/`),
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  }));
 
   // High-intent SEO landing pages — priority just under the homepage.
   const landingPages: MetadataRoute.Sitemap = landings.map((l) => ({
@@ -36,5 +43,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: c.featured ? 0.9 : 0.8,
   }));
 
-  return [...staticPages, ...landingPages, ...coursePages].map((p) => ({ ...p, lastModified: now }));
+  return [...staticPages, ...landingPages, ...coursePages, ...mentorPages].map((p) => ({
+    ...p,
+    lastModified: now,
+  }));
 }

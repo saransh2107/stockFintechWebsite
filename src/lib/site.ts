@@ -185,15 +185,58 @@ export const careerRoles = [
   },
 ];
 
-export const mentors = [
+export type Mentor = {
+  name: string;
+  slug: string;
+  role: string;
+  credentials: string;
+  /** One-paragraph summary used on the mentors grid and in cards. */
+  bio: string;
+  /** Long-form paragraphs rendered on the individual profile page. */
+  profile: string[];
+  specialities: string[];
+  /** What this mentor actually takes, by course title. */
+  teaches: string[];
+  initials: string;
+};
+
+export const mentors: Mentor[] = [
   {
     name: 'Govindam Pal',
     slug: 'govindam-pal',
     role: 'Founder & Lead Mentor',
     credentials: 'NISM Certified · 8+ years in markets',
     bio: 'Govindam leads the Ultimate Traders Program and the NISM certification track. His teaching focuses on price action, risk-first position sizing and the trading psychology that keeps a system alive through drawdowns.',
-    specialities: ['Price Action', 'Options Strategies', 'Risk Management', 'NISM V-A / VIII'],
+    profile: [
+      'Govindam Pal founded Stock Fintech to teach the market the way he had to learn it — slowly, from the chart outwards, and with the risk question answered before the entry question. He leads the Ultimate Traders Program and takes the NISM certification track himself.',
+      'His sessions are built around price action rather than indicators. Students spend most of their time reading structure, marking levels and sizing positions against a defined loss, on the view that a trader who cannot survive a drawdown never gets to find out whether their edge was real.',
+      'He also runs the trade-journal reviews, where learners submit their own entries and exits and have them picked apart — separating the losses that came from a broken process from the ones that were simply the cost of doing business.',
+    ],
+    specialities: ['Price Action', 'Options Strategies', 'Risk Management', 'NISM Series VIII'],
+    teaches: ['Ultimate Traders Program', 'NISM Series VIII', 'One-on-One Mentorship'],
     initials: 'GP',
+  },
+  {
+    // ────────────────────────────────────────────────────────────────────
+    // PLACEHOLDER PROFILE — NOT YET VERIFIED.
+    // mystockfintech.com carries no biography, designation, experience or
+    // certification for Anwar; /instructor/anwar/ is an empty template.
+    // Everything below except the name is written copy, not sourced fact.
+    // Replace it with details confirmed by Stock Fintech before launch, and
+    // do not publish any credential claim that has not been checked.
+    // ────────────────────────────────────────────────────────────────────
+    name: 'Anwar',
+    slug: 'anwar',
+    role: 'Mentor',
+    credentials: 'Details to be confirmed',
+    bio: 'Anwar teaches on the Stock Fintech programs alongside the founding desk. His full profile is being finalised.',
+    profile: [
+      'Anwar teaches on the Stock Fintech programs alongside the founding desk.',
+      'A full profile — covering his background, years in the market, certifications and the subjects he takes — is being finalised and will be published here shortly.',
+    ],
+    specialities: [],
+    teaches: [],
+    initials: 'A',
   },
   {
     name: 'Research & Analytics Desk',
@@ -201,7 +244,13 @@ export const mentors = [
     role: 'Weekly Market Outlook Team',
     credentials: 'NSE & NISM certified analysts',
     bio: 'The in-house desk publishes the weekly market outlook, maintains the question banks and runs the back-testing labs that students use to validate their own strategies.',
+    profile: [
+      'The Research & Analytics Desk is the team behind everything students read between classes. It publishes the weekly market outlook, maintains the chapter-wise question banks used across the certification tracks, and runs the back-testing labs.',
+      'The desk does not issue calls. Its output is written to show the reasoning — why a sector is being watched, what the breadth is doing underneath an index level, which assumption in a model would have to break for the thesis to fail.',
+      'Learners on the research track work directly with the desk, writing their own notes to the same format and having them reviewed before they go into the portfolio they take to interviews.',
+    ],
     specialities: ['Technical Analysis', 'Fundamental Research', 'Back-Testing', 'Market Breadth'],
+    teaches: ['NISM Series XV', 'Ultimate Traders Program'],
     initials: 'RD',
   },
 ];

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { mentors } from '@/lib/site';
 import { pageMeta, breadcrumbLd } from '@/lib/seo';
 import { PageHero, CTABand, SectionHeading } from '@/components/ui';
@@ -54,45 +55,56 @@ export default function MentorsPage() {
 
       <section className="container-x mt-16">
         <StaggerGroup className="grid gap-6 lg:grid-cols-2" gap={0.1}>
-          {mentors.map((m) => (
-            <StaggerItem
-              key={m.slug}
-              className="relative overflow-hidden rounded-[2rem] border border-line bg-card/50 p-8"
-            >
-              <div
-                aria-hidden
-                className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-bull/10 blur-3xl"
-              />
-              <div className="relative flex flex-wrap items-center gap-5">
-                <span className="grid h-20 w-20 shrink-0 place-items-center rounded-3xl bg-gradient-to-br from-bull to-cyan font-display text-2xl font-extrabold text-ink">
-                  {m.initials}
+          {mentors.map((mentor) => (
+            <StaggerItem key={mentor.slug}>
+              <Link
+                href={`/mentors/${mentor.slug}/`}
+                className="group relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-line bg-card/50 p-8 transition-colors hover:border-bull/30"
+              >
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-bull/10 blur-3xl"
+                />
+                <div className="relative flex flex-wrap items-center gap-5">
+                  <span className="grid h-20 w-20 shrink-0 place-items-center rounded-3xl bg-gradient-to-br from-bull to-cyan font-display text-2xl font-extrabold text-ink">
+                    {mentor.initials}
+                  </span>
+                  <div className="min-w-0">
+                    <h2 className="text-2xl font-bold leading-tight transition-colors group-hover:text-bull">
+                      {mentor.name}
+                    </h2>
+                    <p className="mt-1 text-sm font-semibold text-bull">{mentor.role}</p>
+                    <p className="mt-1.5 text-2xs uppercase tracking-[0.12em] text-muted">
+                      {mentor.credentials}
+                    </p>
+                  </div>
+                </div>
+
+                <p className="relative mt-6 text-sm leading-relaxed text-muted">{mentor.bio}</p>
+
+                {mentor.specialities.length > 0 && (
+                  <div className="relative mt-6">
+                    <p className="text-2xs font-semibold uppercase tracking-[0.14em] text-muted">
+                      Teaches
+                    </p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {mentor.specialities.map((s) => (
+                        <span
+                          key={s}
+                          className="rounded-full border border-line bg-white/[0.03] px-3 py-1.5 text-xs text-fg/80"
+                        >
+                          {s}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <span className="relative mt-auto flex items-center gap-2 pt-7 text-sm font-semibold text-bull">
+                  View profile
+                  <Icon.arrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>
-                <div>
-                  <h2 className="text-2xl font-bold leading-tight">{m.name}</h2>
-                  <p className="mt-1 text-sm font-semibold text-bull">{m.role}</p>
-                  <p className="mt-1.5 text-2xs uppercase tracking-[0.12em] text-muted">
-                    {m.credentials}
-                  </p>
-                </div>
-              </div>
-
-              <p className="relative mt-6 text-sm leading-relaxed text-muted">{m.bio}</p>
-
-              <div className="relative mt-6">
-                <p className="text-2xs font-semibold uppercase tracking-[0.14em] text-muted">
-                  Teaches
-                </p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {m.specialities.map((s) => (
-                    <span
-                      key={s}
-                      className="rounded-full border border-line bg-white/[0.03] px-3 py-1.5 text-xs text-fg/80"
-                    >
-                      {s}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              </Link>
             </StaggerItem>
           ))}
         </StaggerGroup>

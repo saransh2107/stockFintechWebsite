@@ -186,6 +186,9 @@ export default function Footer() {
             <Link href="/refund-policy/" className="transition-colors hover:text-bull">
               Refund Policy
             </Link>
+            <Link href="/disclaimer/" className="transition-colors hover:text-bull">
+              Legal Disclaimer
+            </Link>
           </div>
         </div>
       </div>
