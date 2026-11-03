@@ -80,6 +80,7 @@ export const nav: NavItem[] = [
       { label: 'Career Outcomes', href: '/careers/' },
       { label: 'Student Experience', href: '/about/#student-experience' },
       { label: 'FAQs', href: '/about/#faq' },
+      { label: 'Legal Disclaimer', href: '/disclaimer/' },
     ],
   },
   { label: 'Contact', href: '/contact/' },

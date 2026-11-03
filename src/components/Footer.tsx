@@ -166,7 +166,14 @@ export default function Footer() {
               or assured-return schemes. Investment in securities, derivatives, currency and
               digital assets carries market risk, including possible loss of capital. All course
               content is for educational purposes only. Please read all scheme-related documents
-              carefully and consult a SEBI-registered adviser before investing.
+              carefully and consult a SEBI-registered adviser before investing.{' '}
+              <Link
+                href="/disclaimer/"
+                className="font-semibold text-amber underline underline-offset-2 transition-opacity hover:opacity-80"
+              >
+                Read the full legal disclaimer
+              </Link>
+              .
             </p>
           </div>
         </div>
