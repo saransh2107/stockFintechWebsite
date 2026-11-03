@@ -1,0 +1,18 @@
+# Cloudflare Pages configuration.
+#
+# The important line is `pages_build_output_dir`. Without it the output folder
+# is a dashboard field, and if that field is empty Pages uploads the repository
+# root instead of the build — the site 404s everywhere and the source code ends
+# up publicly served. Declaring it here makes the setting part of the repo, so
+# it cannot be lost or mis-typed.
+#
+# The build command still comes from the dashboard and must be:
+#     npm run build
+#
+# Note: this project is a STATIC EXPORT (next.config.mjs -> output: 'export').
+# Do not let Cloudflare's Next.js auto-detection switch this to a Worker running
+# `npx opennextjs-cloudflare build` — there is no server to bundle and it fails.
+
+name = "stockfintechwebsite"
+compatibility_date = "2026-11-03"
+pages_build_output_dir = "out"
