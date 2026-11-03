@@ -1,6 +1,6 @@
 'use client';
 
-import { useId, useRef, type CSSProperties } from 'react';
+import { useEffect, useId, useRef, useState, type CSSProperties } from 'react';
 import { m, useMotionValue, useSpring, useTransform, useReducedMotion } from 'framer-motion';
 
 /**
@@ -65,7 +65,23 @@ export default function BrandMark({
   const sheenX = useTransform(sx, [0, 1], ['-40%', '140%']);
   const glowOp = useTransform(sy, [0, 1], [0.55, 0.2]);
 
-  const live = interactive && !reduce;
+  /**
+   * The 3D treatment is held back until after mount.
+   *
+   * useReducedMotion() cannot know the user's setting while rendering on the
+   * server, so it reports false there and may report true on the client. The
+   * server would then emit the perspective style and the client would not,
+   * which fails hydration and makes React throw away and re-render the tree.
+   * Deferring means both renders start from the same markup.
+   *
+   * Nothing visible is lost: perspective and preserve-3d only matter once a
+   * transform is applied, and the tilt is driven by the pointer, which cannot
+   * have moved before mount.
+   */
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  const live = mounted && interactive && !reduce;
 
   function onMove(e: React.PointerEvent) {
     if (!live || !ref.current) return;
