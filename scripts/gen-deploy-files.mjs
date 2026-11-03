@@ -49,14 +49,36 @@ const bare = (p) => p.replace(/^\//, '').replace(/\/$/, '');
  * Plain `301` is valid on both hosts. The force flag only matters when a real
  * file sits at the source path, and none of these do.
  */
+/*
+ * Canonical `from to code` format: single spaces, no padding, plain `301`.
+ *
+ * Two things bite here:
+ *
+ *  1. The trailing `!` (Netlify's force flag) makes Cloudflare Pages discard
+ *     the line silently. Plain `301` is valid on both hosts.
+ *  2. Aligned column padding is fine on Netlify but is not worth risking on
+ *     Cloudflare's stricter parser, so columns are single-space separated.
+ *
+ * Both the slashed and unslashed form of each source are emitted, because the
+ * two hosts normalise incoming trailing slashes differently and a miss here
+ * means a 404 where a 301 should be — silently losing the search rankings
+ * these redirects exist to preserve.
+ */
+const redirectLines = [];
+for (const r of redirects) {
+  const noSlash = r.from.replace(/\/$/, '');
+  redirectLines.push(`${noSlash} ${r.to} 301`);
+  if (noSlash !== r.from) redirectLines.push(`${r.from} ${r.to} 301`);
+}
+
 writeFileSync(
   join(OUT, '_redirects'),
   [
     '# Legacy WordPress URLs -> rebuilt routes (301, permanent)',
-    ...redirects.map((r) => `${r.from.padEnd(84)} ${r.to}  301`),
+    ...redirectLines,
     '',
     '# Anything else falls through to the 404 page. Must stay last.',
-    `${'/*'.padEnd(84)} /404.html  404`,
+    '/* /404.html 404',
     '',
   ].join('\n')
 );
