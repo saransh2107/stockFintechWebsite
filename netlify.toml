@@ -1,0 +1,18 @@
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# _redirects and _headers are generated into ./out by
+# scripts/gen-deploy-files.mjs during the build, so the legacy 301s and the
+# cache/security headers are applied without duplicating them here.
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+  [plugins.inputs.thresholds]
+    performance = 0.9
+    accessibility = 0.9
+    best-practices = 0.9
+    seo = 0.95

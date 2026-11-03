@@ -1,0 +1,54 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "//": "URL shape is owned by next.config.mjs (trailingSlash: true). Do not set cleanUrls or trailingSlash here as well - the two normalisers fight and produce redirect loops on nested routes.",
+  "redirects": [
+    { "source": "/about-us", "destination": "/about", "permanent": true },
+    { "source": "/instructors", "destination": "/mentors", "permanent": true },
+    { "source": "/instructors-2", "destination": "/mentors", "permanent": true },
+    { "source": "/instructor/:slug", "destination": "/mentors", "permanent": true },
+    { "source": "/pricing-plan", "destination": "/pricing", "permanent": true },
+    { "source": "/term_conditions", "destination": "/terms", "permanent": true },
+    { "source": "/privacy-policy", "destination": "/privacy", "permanent": true },
+    {
+      "source": "/courses/ultimate-traders-program-utp-combo-complete-stock-market-certification-course",
+      "destination": "/courses/ultimate-traders-program",
+      "permanent": true
+    },
+    { "source": "/account", "destination": "/contact", "permanent": true },
+    { "source": "/cart", "destination": "/courses", "permanent": true },
+    { "source": "/checkout", "destination": "/contact", "permanent": true },
+    { "source": "/contact-us", "destination": "/contact", "permanent": true },
+    { "source": "/career", "destination": "/careers", "permanent": true },
+    { "source": "/faq", "destination": "/about", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/_next/static/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*).(svg|webmanifest)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains; preload"
+        }
+      ]
+    }
+  ]
+}

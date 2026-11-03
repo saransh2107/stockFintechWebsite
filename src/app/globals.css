@@ -1,0 +1,309 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Palette. Values are space-separated RGB triples so Tailwind can apply its
+  own opacity modifiers (bg-card/70, text-bull/60, ...).
+
+  Brand hues are sampled from the original logo artwork: a cyan-to-magenta
+  gradient through periwinkle. Bull/bear stay green/red in both themes —
+  they carry market meaning, not brand meaning.
+
+  Dark is the default so a visitor with no stored preference and no system
+  hint still gets the intended look.
+*/
+:root,
+:root[data-theme='dark'] {
+  --c-ink: 6 4 16;
+  --c-surface: 11 9 26;
+  --c-card: 18 15 38;
+  --c-raised: 26 22 52;
+  --c-fg: 238 243 250;
+  --c-muted: 143 160 184;
+  --c-line: rgba(255, 255, 255, 0.09);
+  --c-grid: rgba(255, 255, 255, 0.05);
+
+  --c-brand: 138 124 255;
+  --c-cyan: 22 241 255;
+  --c-violet: 139 124 255;
+  --c-magenta: 188 6 245;
+
+  --c-bull: 0 227 154;
+  --c-bear: 255 77 106;
+  --c-amber: 255 181 71;
+
+  --shadow-soft: 0 18px 50px -24px rgba(0, 0, 0, 0.85);
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --c-ink: 252 252 255;
+  --c-surface: 245 246 251;
+  --c-card: 255 255 255;
+  --c-raised: 239 241 248;
+  --c-fg: 16 18 34;
+  --c-muted: 92 103 128;
+  --c-line: rgba(16, 18, 48, 0.11);
+  --c-grid: rgba(16, 18, 48, 0.05);
+
+  /* Darkened so they stay legible on white — same hues, more depth. */
+  --c-brand: 103 70 230;
+  --c-cyan: 0 144 184;
+  --c-violet: 109 75 232;
+  --c-magenta: 158 5 206;
+
+  --c-bull: 0 150 104;
+  --c-bear: 214 32 62;
+  --c-amber: 168 108 0;
+
+  --shadow-soft: 0 18px 44px -26px rgba(22, 24, 64, 0.3);
+  color-scheme: light;
+}
+
+@layer base {
+  * {
+    @apply border-line;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    @apply bg-ink text-fg font-sans antialiased;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Lock scroll while the preloader is on screen. */
+  body[data-loading='true'] {
+    overflow: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: rgb(var(--c-brand));
+    color: rgb(var(--c-ink));
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--c-brand));
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--ink);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1d2940;
+    border-radius: 99px;
+    border: 2px solid var(--ink);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2b3b58;
+  }
+
+  /* Numbers line up in tables, stats and tickers. */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-2xs font-semibold uppercase tracking-[0.18em] text-bull;
+  }
+
+  .card-surface {
+    @apply rounded-2xl border border-line bg-card/70 backdrop-blur-sm;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold
+           transition-colors duration-200 will-change-transform;
+  }
+
+  .btn-primary {
+    @apply btn bg-bull text-ink hover:bg-[#2bf0b1];
+    box-shadow: 0 8px 30px -8px rgb(var(--c-bull) / 0.45);
+  }
+
+  .btn-ghost {
+    @apply btn border border-line bg-white/[0.03] text-fg hover:border-white/20 hover:bg-white/[0.07];
+  }
+
+  .link-underline {
+    @apply relative after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0
+           after:bg-bull after:transition-[width] after:duration-300 hover:after:w-full;
+  }
+
+  /* Soft radial glow used behind hero and section headers. */
+  .glow::before {
+    content: '';
+    position: absolute;
+    inset: -20% -10% auto -10%;
+    height: 480px;
+    background: radial-gradient(
+      ellipse 60% 50% at 50% 0%,
+      rgb(var(--c-brand) / 0.16),
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-cyan via-violet to-magenta bg-clip-text text-transparent;
+  }
+
+  /* Long-form legal / article copy. */
+  .prose-sf {
+    @apply text-sm leading-relaxed text-muted;
+  }
+  .prose-sf h2 {
+    @apply mt-10 text-xl font-bold text-fg first:mt-0;
+  }
+  .prose-sf h3 {
+    @apply mt-7 text-base font-semibold text-fg;
+  }
+  .prose-sf p {
+    @apply mt-3;
+  }
+  .prose-sf ul {
+    @apply mt-3 list-disc space-y-2 pl-5 marker:text-bull/60;
+  }
+  .prose-sf ol {
+    @apply mt-3 list-decimal space-y-2 pl-5 marker:text-bull/60;
+  }
+  .prose-sf a {
+    @apply text-bull underline underline-offset-2;
+  }
+  .prose-sf strong {
+    @apply font-semibold text-fg;
+  }
+
+  /* Edge-fading mask for marquees and tickers. */
+  .mask-edges {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 8%,
+      #000 92%,
+      transparent
+    );
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
+}
+
+/* ---------------------------------------------------------------
+   Preloader — runs from raw CSS so it paints before React hydrates.
+   --------------------------------------------------------------- */
+
+/* Each candle lifts from below the close and grows into its body. */
+@keyframes candle-rise {
+  0% {
+    transform: translateY(18px) scaleY(0.08);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes draw-line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes sweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(320%);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.preloader-candle {
+  /* transform-origin is set inline per candle (its own close); this is the fallback. */
+  transform-origin: bottom;
+  animation: candle-rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/*
+  dasharray matches the measured trendline length (~355 user units). If you
+  change the CANDLES array, re-measure — too short and the line never finishes
+  drawing, too long and it completes before the animation ends.
+*/
+.preloader-path {
+  stroke-dasharray: 360;
+  stroke-dashoffset: 360;
+  animation: draw-line 2.85s cubic-bezier(0.5, 0.05, 0.35, 1) 0.45s forwards;
+}
+
+.preloader-sweep {
+  animation: sweep 1.8s ease-in-out infinite;
+}
+
+.blink {
+  animation: blink 1.4s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------------
+   Respect the user's motion preference everywhere.
+   --------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .preloader-path {
+    stroke-dashoffset: 0;
+  }
+}

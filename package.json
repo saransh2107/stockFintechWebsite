@@ -1,0 +1,29 @@
+{
+  "name": "stock-fintech",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "node scripts/fetch-news.mjs && next build && node scripts/gen-deploy-files.mjs",
+    "package": "npm run build && node scripts/package-dist.mjs",
+    "news": "node scripts/fetch-news.mjs",
+    "analyze": "next build && node -e \"const{readdirSync,statSync}=require('fs');const p='out/_next/static/chunks';let t=0;readdirSync(p).filter(f=>f.endsWith('.js')).map(f=>({f,s:statSync(p+'/'+f).size})).sort((a,b)=>b.s-a.s).slice(0,12).forEach(x=>{t+=x.s;console.log((x.s/1024).toFixed(1).padStart(8)+' KB  '+x.f)});console.log('\\ntop-12 total: '+(t/1024).toFixed(1)+' KB raw')\"",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "framer-motion": "^14.3.0",
+    "next": "15.1.6",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.7",
+    "@types/react": "19.0.7",
+    "@types/react-dom": "19.0.3",
+    "autoprefixer": "10.4.20",
+    "postcss": "8.5.1",
+    "tailwindcss": "3.4.17",
+    "typescript": "5.7.3"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Stock Fintech — Learn. Grow. Shine.",
+  "short_name": "Stock Fintech",
+  "description": "Stock market, NISM certification, Forex & Crypto training in Lucknow.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#05070D",
+  "theme_color": "#05070D",
+  "lang": "en-IN",
+  "categories": ["education", "finance"],
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

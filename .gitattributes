@@ -1,0 +1,8 @@
+# Normalise to LF in the repository. The GitHub Actions runner is Linux, and
+# CRLF in a shell step or a generated .htaccess causes hard-to-spot failures.
+* text=auto eol=lf
+
+# Binary — never touch these.
+*.png binary
+*.woff2 binary
+*.ico binary
