@@ -196,6 +196,15 @@ export default function Footer() {
             <Link href="/disclaimer/" className="transition-colors hover:text-bull">
               Legal Disclaimer
             </Link>
+            <a
+              href={site.staffPortal}
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              className="inline-flex items-center gap-1.5 border-l border-line pl-5 text-muted/70 transition-colors hover:text-cyan"
+            >
+              <Icon.shield className="h-3 w-3" />
+              Employee Login
+            </a>
           </div>
         </div>
       </div>

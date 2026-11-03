@@ -14,6 +14,12 @@ export const site = {
     'Stock market, NISM certification, Forex & Crypto training in Lucknow — taught by NSE & NISM certified mentors.',
   locale: 'en_IN',
   founded: '2019',
+  /**
+   * Staff operations portal. Internal, so it lives quietly in the footer
+   * rather than the main navigation, and is marked nofollow so search
+   * engines do not index a login screen.
+   */
+  staffPortal: 'https://stockfintech-portal.vercel.app/login',
 };
 
 export const contact = {
