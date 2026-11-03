@@ -38,13 +38,24 @@ const bare = (p) => p.replace(/^\//, '').replace(/\/$/, '');
 
 /* ------------------------------ _redirects ------------------------------ */
 
+/*
+ * Plain `301`, never `301!`.
+ *
+ * The trailing `!` is Netlify's "force" flag. Cloudflare Pages does not
+ * understand it and silently drops any line carrying it — the redirect then
+ * falls through to the catch-all and returns 404, which quietly throws away
+ * the search rankings these redirects exist to protect.
+ *
+ * Plain `301` is valid on both hosts. The force flag only matters when a real
+ * file sits at the source path, and none of these do.
+ */
 writeFileSync(
   join(OUT, '_redirects'),
   [
     '# Legacy WordPress URLs -> rebuilt routes (301, permanent)',
-    ...redirects.map((r) => `${r.from.padEnd(84)} ${r.to}  301!`),
+    ...redirects.map((r) => `${r.from.padEnd(84)} ${r.to}  301`),
     '',
-    '# Anything else falls through to the 404 page',
+    '# Anything else falls through to the 404 page. Must stay last.',
     `${'/*'.padEnd(84)} /404.html  404`,
     '',
   ].join('\n')
