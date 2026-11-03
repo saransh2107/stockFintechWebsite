@@ -86,8 +86,15 @@ export const metadata: Metadata = {
     images: ['/og.svg'],
   },
   icons: {
-    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
-    apple: [{ url: '/icon.svg' }],
+    // favicon.ico first: Chrome requests /favicon.ico regardless of what the
+    // page declares, and caches the result per-domain for a long time. Without
+    // one, whatever the domain served before stays in the tab.
+    icon: [
+      { url: '/favicon.ico', sizes: '16x16 32x32 48x48' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    // iOS ignores SVG here and needs a PNG, or the home-screen icon is blank.
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
   manifest: '/manifest.webmanifest',
 };
